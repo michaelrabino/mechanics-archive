@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ארכיון מבחנים - מכניקה</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>ארכיון מבחנים - מכניקה</h1>
+        <p>מאגר שאלונים ופתרונות, ניתן לחפש לפי נושאים, מועדים או מילות מפתח</p>
+    </header>
+
+    <main>
+        <aside class="filters">
+            <input type="text" id="searchInput" placeholder="חיפוש חופשי (למשל: תנע, קפיץ)...">
+            
+            <div class="filter-group">
+                <select id="yearFilter">
+                    <option value="">כל השנים</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                </select>
+
+                <select id="semesterFilter">
+                    <option value="">כל הסמסטרים</option>
+                    <option value="א">סמסטר א'</option>
+                    <option value="ב">סמסטר ב'</option>
+                    <option value="קיץ">קיץ</option>
+                </select>
+            </div>
+        </aside>
+
+        <section id="results" class="results-grid">
+            <!-- התוצאות יוזרקו לכאן על ידי JavaScript -->
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
