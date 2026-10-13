@@ -1,48 +1,45 @@
-let examsData = [];
+let questionsData = [];
 
-// פונקציה לטעינת הנתונים מקובץ ה-JSON
 async function loadExams() {
     try {
         const response = await fetch('./catalog.json');
-        examsData = await response.json();
-        renderExams(examsData);
+        questionsData = await response.json();
+        renderQuestions(questionsData);
     } catch (error) {
         console.error('שגיאה בטעינת הנתונים:', error);
-        document.getElementById('results').innerHTML = '<p>שגיאה בטעינת מסד הנתונים. ודא שקובץ ה-JSON קיים ותקין.</p>';
+        document.getElementById('results').innerHTML = '<p>שגיאה בטעינת מסד הנתונים.</p>';
     }
 }
 
-// פונקציה לרינדור הכרטיסיות במסך
-function renderExams(exams) {
+function renderQuestions(questions) {
     const resultsContainer = document.getElementById('results');
     resultsContainer.innerHTML = '';
 
-    if (exams.length === 0) {
-        resultsContainer.innerHTML = '<p>לא נמצאו מבחנים התואמים את החיפוש.</p>';
+    if (questions.length === 0) {
+        resultsContainer.innerHTML = '<p>לא נמצאו שאלות התואמות את החיפוש.</p>';
         return;
     }
 
-    exams.forEach(exam => {
+    questions.forEach(q => {
         const card = document.createElement('div');
         card.className = 'exam-card';
 
-        // בניית התגיות
-        const allTags = [...exam.topics, ...exam.keywords];
+        const allTags = [...q.topics, ...q.keywords];
         const tagsHtml = allTags.map(tag => `<span class="tag">${tag}</span>`).join('');
 
-        // כפתורי הורדה
-        const solutionBtn = exam.solutionUrl 
-            ? `<a href="${exam.solutionUrl}" target="_blank" class="btn-solution">פתרון</a>` 
+        const solutionBtn = q.solutionUrl 
+            ? `<a href="${q.solutionUrl}" target="_blank" class="btn-solution">לפתרון</a>` 
             : `<a href="#" class="btn-disabled" onclick="return false;">אין פתרון</a>`;
 
         card.innerHTML = `
-            <h3>${exam.course}</h3>
-            <p><strong>שנה:</strong> ${exam.year} | <strong>סמסטר:</strong> ${exam.semester}' | <strong>מועד:</strong> ${exam.moed}'</p>
+            <div class="question-badge">שאלה ${q.questionNum}</div>
+            <h3>${q.course}</h3>
+            <p><strong>שנה:</strong> ${q.year} | <strong>סמסטר:</strong> ${q.semester}' | <strong>מועד:</strong> ${q.moed}</p>
             <div class="tags">
                 ${tagsHtml}
             </div>
             <div class="links">
-                <a href="${exam.examUrl}" target="_blank" class="btn-exam">שאלון</a>
+                <a href="${q.questionUrl}" target="_blank" class="btn-exam">לשאלה</a>
                 ${solutionBtn}
             </div>
         `;
@@ -50,31 +47,35 @@ function renderExams(exams) {
     });
 }
 
-// פונקציית הסינון
-function filterExams() {
+function filterQuestions() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const yearFilter = document.getElementById('yearFilter').value;
     const semesterFilter = document.getElementById('semesterFilter').value;
 
-    const filtered = examsData.filter(exam => {
-        // בדיקת חיפוש טקסטואלי (בנושאים, מילות מפתח או שם הקורס)
-        const searchableText = [exam.course, ...exam.topics, ...exam.keywords].join(' ').toLowerCase();
+    const filtered = questionsData.filter(q => {
+        const searchableText = [q.course, ...q.topics, ...q.keywords].join(' ').toLowerCase();
         const matchesSearch = searchableText.includes(searchTerm);
-
-        // בדיקת מסננים
-        const matchesYear = yearFilter === "" || exam.year.toString() === yearFilter;
-        const matchesSemester = semesterFilter === "" || exam.semester === semesterFilter;
+        const matchesYear = yearFilter === "" || q.year.toString() === yearFilter;
+        const matchesSemester = semesterFilter === "" || q.semester === semesterFilter;
 
         return matchesSearch && matchesYear && matchesSemester;
     });
 
-    renderExams(filtered);
+    renderQuestions(filtered);
 }
 
-// הוספת מאזינים (Event Listeners) לשדות הסינון
-document.getElementById('searchInput').addEventListener('input', filterExams);
-document.getElementById('yearFilter').addEventListener('change', filterExams);
-document.getElementById('semesterFilter').addEventListener('change', filterExams);
+// הפעלת החיפוש בלחיצה על הכפתור
+document.getElementById('searchBtn').addEventListener('click', filterQuestions);
 
-// טעינה ראשונית של הנתונים כשהעמוד עולה
+// הפעלת החיפוש גם בלחיצה על Enter במקלדת
+document.getElementById('searchInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        filterQuestions();
+    }
+});
+
+// סינון אוטומטי בעת שינוי תיבות הבחירה (סמסטר/שנה)
+document.getElementById('yearFilter').addEventListener('change', filterQuestions);
+document.getElementById('semesterFilter').addEventListener('change', filterQuestions);
+
 window.addEventListener('DOMContentLoaded', loadExams);
