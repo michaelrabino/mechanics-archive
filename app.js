@@ -27,25 +27,46 @@ function renderQuestions(questions) {
         const allTags = [...q.topics, ...q.keywords];
         const tagsHtml = allTags.map(tag => `<span class="tag">${tag}</span>`).join('');
 
-        const solutionBtn = q.solutionUrl 
-            ? `<a href="${q.solutionUrl}" target="_blank" class="btn-solution">לפתרון</a>` 
-            : `<a href="#" class="btn-disabled" onclick="return false;">אין פתרון</a>`;
-
         card.innerHTML = `
-            <div class="question-badge">שאלה ${q.questionNum}</div>
-            <h3>${q.course}</h3>
-            <p><strong>שנה:</strong> ${q.year} | <strong>סמסטר:</strong> ${q.semester}' | <strong>מועד:</strong> ${q.moed}</p>
-            <div class="tags">
-                ${tagsHtml}
+            <div class="card-header">
+                <div class="question-badge">שאלה ${q.questionNum}</div>
+                <div class="meta-info">${q.course} | ${q.year} סמסטר ${q.semester}' מועד ${q.moed}</div>
             </div>
-            <div class="links">
-                <a href="${q.questionUrl}" target="_blank" class="btn-exam">לשאלה</a>
-                ${solutionBtn}
+            
+            <div class="tags">${tagsHtml}</div>
+            
+            <div class="question-content">
+                ${q.questionHtml}
+            </div>
+
+            <button class="btn-toggle-sol" onclick="toggleSolution('${q.id}')" id="btn-${q.id}">הצג פתרון מלא</button>
+            
+            <div class="solution-content" id="sol-${q.id}" style="display: none;">
+                ${q.solutionHtml}
             </div>
         `;
         resultsContainer.appendChild(card);
     });
+
+    // קריאה ל-MathJax לרנדר את הנוסחאות שהרגע הזרקנו למסך
+    if (window.MathJax) {
+        MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
+    }
 }
+
+// פונקציה לפתיחה וסגירה של הפתרון
+window.toggleSolution = function(id) {
+    const solDiv = document.getElementById(`sol-${id}`);
+    const btn = document.getElementById(`btn-${id}`);
+    
+    if (solDiv.style.display === 'none') {
+        solDiv.style.display = 'block';
+        btn.textContent = 'הסתר פתרון';
+    } else {
+        solDiv.style.display = 'none';
+        btn.textContent = 'הצג פתרון מלא';
+    }
+};
 
 function filterQuestions() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
@@ -53,8 +74,10 @@ function filterQuestions() {
     const semesterFilter = document.getElementById('semesterFilter').value;
 
     const filtered = questionsData.filter(q => {
-        const searchableText = [q.course, ...q.topics, ...q.keywords].join(' ').toLowerCase();
+        // חיפוש בתוכן השאלה בנוסף למילות המפתח
+        const searchableText = [q.course, ...q.topics, ...q.keywords, q.questionHtml].join(' ').toLowerCase();
         const matchesSearch = searchableText.includes(searchTerm);
+        
         const matchesYear = yearFilter === "" || q.year.toString() === yearFilter;
         const matchesSemester = semesterFilter === "" || q.semester === semesterFilter;
 
@@ -64,17 +87,8 @@ function filterQuestions() {
     renderQuestions(filtered);
 }
 
-// הפעלת החיפוש בלחיצה על הכפתור
 document.getElementById('searchBtn').addEventListener('click', filterQuestions);
-
-// הפעלת החיפוש גם בלחיצה על Enter במקלדת
-document.getElementById('searchInput').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        filterQuestions();
-    }
-});
-
-// סינון אוטומטי בעת שינוי תיבות הבחירה (סמסטר/שנה)
+document.getElementById('searchInput').addEventListener('keypress', e => { if (e.key === 'Enter') filterQuestions(); });
 document.getElementById('yearFilter').addEventListener('change', filterQuestions);
 document.getElementById('semesterFilter').addEventListener('change', filterQuestions);
 
