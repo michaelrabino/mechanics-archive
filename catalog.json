@@ -1,13 +1,62 @@
 [
   {
-    "id": "mech-20215-2026-b-94",
+    "id": "2026-b-94-q1",
     "course": "מכניקה (20215)",
     "year": 2026,
     "semester": "ב",
     "moed": "94",
-    "topics": ["תנע קווי", "כוח גרר", "אוסצילטור הרמוני", "גוף קשיח", "מערכת מסה משתנה", "תורת היחסות"],
-    "keywords": ["התנגשות פלסטית", "משוואה דיפרנציאלית", "קפיצים", "מרכז מסה", "מומנט התמד", "רקטה", "טרנספורמציית לורנץ"],
-    "examUrl": "exams/2026_b_94_questions.html",
-    "solutionUrl": "exams/2026_b_94_solutions.html"
+    "questionNum": 1,
+    "topics": ["תנע קווי", "כוח גרר"],
+    "keywords": ["התנגשות פלסטית", "משוואה דיפרנציאלית", "מסה מצומצמת"],
+    "questionUrl": "exams/2026_b_94_questions.html#q1",
+    "solutionUrl": "exams/2026_b_94_solutions.html#q1"
+  },
+  {
+    "id": "2026-b-94-q2",
+    "course": "מכניקה (20215)",
+    "year": 2026,
+    "semester": "ב",
+    "moed": "94",
+    "questionNum": 2,
+    "topics": ["אוסצילטור הרמוני"],
+    "keywords": ["קפיצים", "זמן מחזור", "מתקף", "שימור אנרגיה"],
+    "questionUrl": "exams/2026_b_94_questions.html#q2",
+    "solutionUrl": "exams/2026_b_94_solutions.html#q2"
+  },
+  {
+    "id": "2026-b-94-q3",
+    "course": "מכניקה (20215)",
+    "year": 2026,
+    "semester": "ב",
+    "moed": "94",
+    "questionNum": 3,
+    "topics": ["גוף קשיח"],
+    "keywords": ["התנגשות פלסטית", "מרכז מסה", "משפט שטיינר", "מומנט התמד", "שימור תנע זוויתי"],
+    "questionUrl": "exams/2026_b_94_questions.html#q3",
+    "solutionUrl": "exams/2026_b_94_solutions.html#q3"
+  },
+  {
+    "id": "2026-b-94-q4",
+    "course": "מכניקה (20215)",
+    "year": 2026,
+    "semester": "ב",
+    "moed": "94",
+    "questionNum": 4,
+    "topics": ["מערכת מסה משתנה", "כוחות חיכוך"],
+    "keywords": ["רקטה", "כוח דחף", "קינמטיקה"],
+    "questionUrl": "exams/2026_b_94_questions.html#q4",
+    "solutionUrl": "exams/2026_b_94_solutions.html#q4"
+  },
+  {
+    "id": "2026-b-94-q5",
+    "course": "מכניקה (20215)",
+    "year": 2026,
+    "semester": "ב",
+    "moed": "94",
+    "questionNum": 5,
+    "topics": ["תורת היחסות"],
+    "keywords": ["טרנספורמציית לורנץ", "טרנספורמציית מהירויות", "אנרגיה ותנע יחסותי"],
+    "questionUrl": "exams/2026_b_94_questions.html#q5",
+    "solutionUrl": "exams/2026_b_94_solutions.html#q5"
   }
 ]
