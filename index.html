@@ -5,23 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ארכיון מבחנים - מכניקה</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .search-box { display: flex; gap: 0.5rem; }
-        .btn-search { background: #2563eb; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 4px; cursor: pointer; font-weight: bold; }
-        .btn-search:hover { background: #1d4ed8; }
-        .question-badge { background: #fee2e2; color: #b91c1c; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: bold; display: inline-block; margin-bottom: 0.5rem; }
-    </style>
+    
+    <!-- ייבוא MathJax לתצוגת משוואות -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <header>
         <h1>ארכיון מבחנים - מכניקה</h1>
-        <p>מאגר שאלות ופתרונות, ניתן לחפש לפי נושאים, מועדים או מילות מפתח</p>
+        <p>חיפוש חכם בתוך מאגר שאלות ופתרונות מלאים</p>
     </header>
 
     <main>
         <aside class="filters">
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="חיפוש חופשי (למשל: תנע זוויתי, גלגלת)...">
+                <input type="text" id="searchInput" placeholder="חיפוש לפי מילה (למשל: תנע, אוסצילטור, קליע)...">
                 <button id="searchBtn" class="btn-search">חפש</button>
             </div>
             
@@ -44,8 +42,8 @@
             </div>
         </aside>
 
-        <section id="results" class="results-grid">
-            <!-- התוצאות יוזרקו לכאן -->
+        <!-- רשת התוצאות תהיה בטור אחד רחב כדי להציג את השאלות בצורה נוחה -->
+        <section id="results" class="results-list">
         </section>
     </main>
 
