@@ -1,27 +1,5 @@
 [
   {
-    "id": "mech-20215-2023-a-a",
-    "course": "מכניקה (20215)",
-    "year": 2023,
-    "semester": "א",
-    "moed": "א",
-    "topics": ["קינמטיקה", "גוף קשיח", "תנועה מעגלית"],
-    "keywords": ["גלגול ללא החלקה", "כוח מדומה", "משפט שטיינר"],
-    "examUrl": "exams/2023_a_a_exam.pdf",
-    "solutionUrl": "exams/2023_a_a_sol.pdf"
-  },
-  {
-    "id": "mech-20965-2022-b-b",
-    "course": "מכניקה (20965)",
-    "year": 2022,
-    "semester": "ב",
-    "moed": "ב",
-    "topics": ["עבודה ואנרגיה", "תנע ומרכז מסה", "אוסצילטור הרמוני"],
-    "keywords": ["התנגשות פלסטית", "קפיץ", "מטוטלת פיזיקלית"],
-    "examUrl": "exams/2022_b_b_exam.pdf",
-    "solutionUrl": ""
-  },
-  {
     "id": "mech-20215-2026-b-94",
     "course": "מכניקה (20215)",
     "year": 2026,
@@ -33,5 +11,3 @@
     "solutionUrl": "exams/2026_b_94_solutions.html"
   }
 ]
-
-
