@@ -27,10 +27,10 @@ function renderQuestions(questions) {
         const allTags = [...q.topics, ...q.keywords];
         const tagsHtml = allTags.map(tag => `<span class="tag">${tag}</span>`).join('');
 
+        // שימוש בתגיות details ו-summary ליצירת התפריט הנפתח
         card.innerHTML = `
             <div class="card-header">
-                <div class="question-badge">שאלה ${q.questionNum}</div>
-                <div class="meta-info">${q.course} | ${q.year} סמסטר ${q.semester}' מועד ${q.moed}</div>
+                <div class="question-title">שאלה ${q.questionNum} (${q.year}, סמסטר ${q.semester}', מועד ${q.moed})</div>
             </div>
             
             <div class="tags">${tagsHtml}</div>
@@ -39,34 +39,21 @@ function renderQuestions(questions) {
                 ${q.questionHtml}
             </div>
 
-            <button class="btn-toggle-sol" onclick="toggleSolution('${q.id}')" id="btn-${q.id}">הצג פתרון מלא</button>
-            
-            <div class="solution-content" id="sol-${q.id}" style="display: none;">
-                ${q.solutionHtml}
-            </div>
+            <details class="solution-dropdown">
+                <summary class="solution-summary">הצג פתרון מלא</summary>
+                <div class="solution-content">
+                    ${q.solutionHtml}
+                </div>
+            </details>
         `;
         resultsContainer.appendChild(card);
     });
 
-    // קריאה ל-MathJax לרנדר את הנוסחאות שהרגע הזרקנו למסך
+    // רינדור מחודש של נוסחאות המתמטיקה לאחר הזרקת התוכן
     if (window.MathJax) {
         MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
     }
 }
-
-// פונקציה לפתיחה וסגירה של הפתרון
-window.toggleSolution = function(id) {
-    const solDiv = document.getElementById(`sol-${id}`);
-    const btn = document.getElementById(`btn-${id}`);
-    
-    if (solDiv.style.display === 'none') {
-        solDiv.style.display = 'block';
-        btn.textContent = 'הסתר פתרון';
-    } else {
-        solDiv.style.display = 'none';
-        btn.textContent = 'הצג פתרון מלא';
-    }
-};
 
 function filterQuestions() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
@@ -74,7 +61,7 @@ function filterQuestions() {
     const semesterFilter = document.getElementById('semesterFilter').value;
 
     const filtered = questionsData.filter(q => {
-        // חיפוש בתוכן השאלה בנוסף למילות המפתח
+        // חיפוש בתוכן השאלה, נושאים, ומילות מפתח
         const searchableText = [q.course, ...q.topics, ...q.keywords, q.questionHtml].join(' ').toLowerCase();
         const matchesSearch = searchableText.includes(searchTerm);
         
@@ -87,9 +74,11 @@ function filterQuestions() {
     renderQuestions(filtered);
 }
 
+// הפעלת חיפוש
 document.getElementById('searchBtn').addEventListener('click', filterQuestions);
 document.getElementById('searchInput').addEventListener('keypress', e => { if (e.key === 'Enter') filterQuestions(); });
 document.getElementById('yearFilter').addEventListener('change', filterQuestions);
 document.getElementById('semesterFilter').addEventListener('change', filterQuestions);
 
+// טעינה ראשונית
 window.addEventListener('DOMContentLoaded', loadExams);
