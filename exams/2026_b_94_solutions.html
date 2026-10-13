@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>פתרונות - מבחן מכניקה 20215 (מועד 94)</title>
+    <style>
+        body { font-family: system-ui, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1, h2 { color: #10b981; }
+        .solution { background: #f0fdf4; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #bbf7d0; }
+        .math { direction: ltr; text-align: left; margin: 10px 0; }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <h1>פתרונות למבחן מכניקה (20215) - סמסטר 2026ב', מועד 94</h1>
+
+    <div class="solution">
+        <h2>שאלה 1 - פתרון</h2>
+        <p><strong>א.</strong> מדובר בהתנגשות פלסטית ללא כוחות חיצוניים בציר האופקי, לכן התנע הכולל נשמר:</p>
+        <p class="math">\( m v_0 = (m + M)V_f \implies V_f = \frac{m}{m+M}v_0 \)</p>
+        
+        <p><strong>ב.</strong> משוואות התנועה על פי החוק השני של ניוטון:</p>
+        <p class="math">\( m \frac{dv_1}{dt} = -b(v_1 - v_2) = -bu \)</p>
+        <p class="math">\( M \frac{dv_2}{dt} = b(v_1 - v_2) = bu \)</p>
+        <p>נגזור את \(u = v_1 - v_2\) לפי הזמן:</p>
+        <p class="math">\( \frac{du}{dt} = \frac{dv_1}{dt} - \frac{dv_2}{dt} = -\frac{b}{m}u - \frac{b}{M}u = -b\left(\frac{1}{m} + \frac{1}{M}\right)u \)</p>
+        
+        <p><strong>ג.</strong> פתרון המשוואה הדיפרנציאלית הפשוטה מסדר ראשון. נסמן \(\mu = \frac{mM}{m+M}\) (מסה מצומצמת):</p>
+        <p class="math">\( u(t) = u(0) e^{-\frac{b}{\mu}t} \)</p>
+        <p>מכיוון ש-\(u(0) = v_0 - 0 = v_0\), נקבל: \( u(t) = v_0 e^{-\frac{b(m+M)}{mM}t} \).</p>
+        
+        <p><strong>ד.</strong> עומק החדירה \(d\) הוא האינטגרל של המהירות היחסית \(u(t)\) מרגע הפגיעה ועד שהקליע נעצר בתוך הבול (\(t \to \infty\)):</p>
+        <p class="math">\( d = \int_0^\infty u(t) dt = \int_0^\infty v_0 e^{-\frac{b}{\mu}t} dt = v_0 \left[ -\frac{\mu}{b} e^{-\frac{b}{\mu}t} \right]_0^\infty = \frac{v_0 \cdot m M}{b(m+M)} \)</p>
+    </div>
+
+    <div class="solution">
+        <h2>שאלה 3 - פתרון (גוף קשיח)</h2>
+        <p><strong>א.</strong> נקבע את ראשית הצירים \((0,0)\) בנקודת ההתנגשות. מרכז המסה של המוט האופקי נמצא במרחק \(L/2\) שמאלה, קרי ב-\(-L/2, 0\). מרכז המסה של המוט האנכי נמצא במרחק \(L/2 - L/3 = L/6\) מעל לנקודת ההתנגשות, קרי ב-\(0, L/6\). מרכז המסה המשותף:</p>
+        <p class="math">\( X_{cm} = \frac{m(-L/2) + m(0)}{2m} = -\frac{L}{4} \)</p>
+        <p class="math">\( Y_{cm} = \frac{m(0) + m(L/6)}{2m} = \frac{L}{12} \)</p>
+        
+        <p><strong>ג.</strong> שימור תנע קווי מערכתי:</p>
+        <p class="math">\( m v_0 \hat{x} = 2m \vec{V}_{cm} \implies \vec{V}_{cm} = \frac{v_0}{2} \hat{x} \)</p>
+        
+        <p><strong>ד.</strong> שימור תנע זוויתי ביחס למרכז המסה החדש. התנע הזוויתי ההתחלתי הוא של המוט האופקי סביב ה-CM החדש:</p>
+        <p class="math">\( \vec{J}_{init} = \vec{r}_{cm} \times \vec{p} = \left(-\frac{L}{4}\hat{x} + \frac{L}{12}\hat{y}\right) \times (m v_0 \hat{x}) = -m v_0 \frac{L}{12} \hat{z} \)</p>
+        <p class="math">\( \vec{J}_{final} = I_{cm} \omega \hat{z} \)</p>
+        <p>לאחר חישוב \(I_{cm}\) (בסעיף ב'), משווים ומוצאים את \(\omega\).</p>
+    </div>
+
+    <div class="solution">
+        <h2>שאלה 4 - פתרון (רקטה ומסה משתנה)</h2>
+        <p><strong>א.</strong> משוואת התנועה של הרקטה ברגע ההצתה (כוח דחף מול חיכוך סטטי מקסימלי):</p>
+        <p class="math">\( F_{thrust} = \gamma U \)</p>
+        <p class="math">\( f_{s,max} = \mu N = \mu M_0 g \)</p>
+        <p>כדי שתתחיל לנוע: \(\gamma U > \mu M_0 g \implies \mu_{max} = \frac{\gamma U}{M_0 g}\).</p>
+    </div>
+</body>
+</html>
