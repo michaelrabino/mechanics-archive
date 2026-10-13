@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ארכיון מבחנים - מכניקה</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .search-box { display: flex; gap: 0.5rem; }
+        .btn-search { background: #2563eb; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .btn-search:hover { background: #1d4ed8; }
+        .question-badge { background: #fee2e2; color: #b91c1c; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: bold; display: inline-block; margin-bottom: 0.5rem; }
+    </style>
 </head>
 <body>
     <header>
         <h1>ארכיון מבחנים - מכניקה</h1>
-        <p>מאגר שאלונים ופתרונות, ניתן לחפש לפי נושאים, מועדים או מילות מפתח</p>
+        <p>מאגר שאלות ופתרונות, ניתן לחפש לפי נושאים, מועדים או מילות מפתח</p>
     </header>
 
     <main>
         <aside class="filters">
-            <input type="text" id="searchInput" placeholder="חיפוש חופשי (למשל: תנע, קפיץ)...">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="חיפוש חופשי (למשל: תנע זוויתי, גלגלת)...">
+                <button id="searchBtn" class="btn-search">חפש</button>
+            </div>
             
             <div class="filter-group">
                 <select id="yearFilter">
@@ -24,8 +33,8 @@
                     <option value="2024">2024</option>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
-            </select>
-               
+                </select>
+
                 <select id="semesterFilter">
                     <option value="">כל הסמסטרים</option>
                     <option value="א">סמסטר א'</option>
@@ -36,7 +45,7 @@
         </aside>
 
         <section id="results" class="results-grid">
-            <!-- התוצאות יוזרקו לכאן על ידי JavaScript -->
+            <!-- התוצאות יוזרקו לכאן -->
         </section>
     </main>
 
