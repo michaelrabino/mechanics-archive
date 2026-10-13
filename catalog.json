@@ -8,8 +8,8 @@
     "questionNum": 1,
     "topics": ["תנע קווי", "כוח גרר"],
     "keywords": ["התנגשות פלסטית", "משוואה דיפרנציאלית", "מסה מצומצמת"],
-    "questionUrl": "exams/2026_b_94_questions.html#q1",
-    "solutionUrl": "exams/2026_b_94_solutions.html#q1"
+    "questionHtml": "<img src='exams/q1.png' class='exam-img' onerror='this.style.display=\"none\"'><p>קליע שמסתו \\(m\\), הנע במהירות \\(v_0\\), פוגע אופקית בבול עץ שמסתו \\(M\\), העומד במנוחה על מישור חלק. הקליע ננעץ בבול העץ, ובסופו של דבר נעצר ביחס לבול העץ. הניחו כי במהלך התנועה של הקליע בבול העץ, על הקליע פעל כוח גרר שפרופורציונלי למהירות היחסית בין הגופים, \\(F = -bu\\), כאשר \\(u = v_1 - v_2\\) היא מהירות הקליע (\\(v_1\\)) פחות מהירות בול העץ (\\(v_2\\)), וכן הניחו כי \\(b > 0\\). השפעת הכבידה זניחה. הניחו כי הקליע הוא חלקיק נקודתי, וכי המסה החסרה בבול העץ זניחה.</p><ol type='א'><li>מה המהירות הסופית של המערכת?</li><li>כתבו את משוואת התנועה עבור הקליע ובול העץ בנפרד, וממנה מצאו משוואה דיפרנציאלית עבור \\(u(t)\\) בלבד.</li><li>מצאו את \\(u(t)\\).</li><li>מצאו את העומק \\(d\\) שאליו חדר הקליע בתוך בול העץ.</li></ol>",
+    "solutionHtml": "<p><strong>א.</strong> מדובר בהתנגשות פלסטית:</p><p class='math'>\\( m v_0 = (m + M)V_f \\implies V_f = \\frac{m}{m+M}v_0 \\)</p><p><strong>ב.</strong> משוואות התנועה עבור כל גוף בנפרד:</p><p class='math'>\\( m \\frac{dv_1}{dt} = -b(v_1 - v_2) = -bu \\)<br>\\( M \\frac{dv_2}{dt} = b(v_1 - v_2) = bu \\)</p><p>נגזור את המהירות היחסית ונציב:</p><p class='math'>\\( \\frac{du}{dt} = -b\\left(\\frac{1}{m} + \\frac{1}{M}\\right)u \\)</p><p><strong>ג.</strong> נגדיר מסה מצומצמת \\(\\mu = \\frac{mM}{m+M}\\). הפתרון:</p><p class='math'>\\( u(t) = v_0 e^{-\\frac{b}{\\mu}t} \\)</p><p><strong>ד.</strong> עומק החדירה הוא האינטגרל של המהירות היחסית:</p><p class='math'>\\( d = \\int_0^\\infty v_0 e^{-\\frac{b}{\\mu}t} dt = \\frac{v_0 \\cdot m M}{b(m+M)} \\)</p>"
   },
   {
     "id": "2026-b-94-q2",
@@ -20,43 +20,7 @@
     "questionNum": 2,
     "topics": ["אוסצילטור הרמוני"],
     "keywords": ["קפיצים", "זמן מחזור", "מתקף", "שימור אנרגיה"],
-    "questionUrl": "exams/2026_b_94_questions.html#q2",
-    "solutionUrl": "exams/2026_b_94_solutions.html#q2"
-  },
-  {
-    "id": "2026-b-94-q3",
-    "course": "מכניקה (20215)",
-    "year": 2026,
-    "semester": "ב",
-    "moed": "94",
-    "questionNum": 3,
-    "topics": ["גוף קשיח"],
-    "keywords": ["התנגשות פלסטית", "מרכז מסה", "משפט שטיינר", "מומנט התמד", "שימור תנע זוויתי"],
-    "questionUrl": "exams/2026_b_94_questions.html#q3",
-    "solutionUrl": "exams/2026_b_94_solutions.html#q3"
-  },
-  {
-    "id": "2026-b-94-q4",
-    "course": "מכניקה (20215)",
-    "year": 2026,
-    "semester": "ב",
-    "moed": "94",
-    "questionNum": 4,
-    "topics": ["מערכת מסה משתנה", "כוחות חיכוך"],
-    "keywords": ["רקטה", "כוח דחף", "קינמטיקה"],
-    "questionUrl": "exams/2026_b_94_questions.html#q4",
-    "solutionUrl": "exams/2026_b_94_solutions.html#q4"
-  },
-  {
-    "id": "2026-b-94-q5",
-    "course": "מכניקה (20215)",
-    "year": 2026,
-    "semester": "ב",
-    "moed": "94",
-    "questionNum": 5,
-    "topics": ["תורת היחסות"],
-    "keywords": ["טרנספורמציית לורנץ", "טרנספורמציית מהירויות", "אנרגיה ותנע יחסותי"],
-    "questionUrl": "exams/2026_b_94_questions.html#q5",
-    "solutionUrl": "exams/2026_b_94_solutions.html#q5"
+    "questionHtml": "<img src='exams/q2.png' class='exam-img' onerror='this.style.display=\"none\"'><p>גוף בעל מסה \\(m\\) מוחזק במנוחה כאשר הוא מכווץ קפיץ בעל קבוע \\(k_1\\) בשיעור \\(L\\) שמאלה מנקודת שיווי המשקל שלו (נקודה A). לקיר הימני (נקודה B) מרחק של \\(L/2\\) מנקודה A. קפיץ שני בעל קבוע \\(k_2\\) מחובר לגוף, ופוגע בקיר הימני במהלך התנועה. ידוע כי \\(k_2 > 3k_1\\).</p><ol type='א'><li>מהו פרק הזמן שיחלוף עד לנקודה הקרובה ביותר לקיר הימני?</li><li>מהו המרחק המינימלי מנקודה B שאליו יגיע הגוף?</li><li>מהו הכוח שמפעיל הקיר על הקפיץ בנקודת המינימום?</li><li>מהו המתקף הכולל שהפעיל הקיר הימני?</li></ol>",
+    "solutionHtml": "<p><strong>א.</strong> הזמן מורכב מרבע זמן מחזור של קפיץ 1, ורבע זמן מחזור של המערכת המשותפת:</p><p class='math'>\\( t_{total} = \\frac{\\pi}{2}\\sqrt{m}\\left(\\frac{1}{\\sqrt{k_1}} + \\frac{1}{\\sqrt{k_1+k_2}}\\right) \\)</p><p><strong>ב.</strong> שימור אנרגיה למציאת המשרעת החדשה \\(A_2\\):</p><p class='math'>\\( \\frac{1}{2}k_1 L^2 = \\frac{1}{2}(k_1+k_2)A_2^2 \\implies A_2 = L\\sqrt{\\frac{k_1}{k_1+k_2}} \\)</p><p>המרחק מהקיר (שנמצא ב-\\(L/2\\)): \\( d_{min} = \\frac{L}{2} - A_2 \\).</p><p><strong>ג.</strong> הכוח שהקיר מפעיל הוא הכוח של קפיץ 2 כשהוא מכווץ בשיעור \\(A_2\\):</p><p class='math'>\\( F = k_2 L \\sqrt{\\frac{k_1}{k_1+k_2}} \\)</p><p><strong>ד.</strong> המתקף שווה לחלק היחסי (לפי קבוע הקפיץ) מתוך השינוי הכולל בתנע של המסה:</p><p class='math'>\\( J_{wall} = -2L\\sqrt{mk_1} \\left( \\frac{k_2}{k_1+k_2} \\right) \\)</p>"
   }
 ]
