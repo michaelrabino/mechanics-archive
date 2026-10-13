@@ -7,54 +7,119 @@
         body { font-family: system-ui, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; }
         h1, h2 { color: #10b981; }
         .solution { background: #f0fdf4; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #bbf7d0; }
-        .math { direction: ltr; text-align: left; margin: 10px 0; }
+        .math { direction: ltr; text-align: left; margin: 15px 0; overflow-x: auto;}
     </style>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1>פתרונות למבחן מכניקה (20215) - סמסטר 2026ב', מועד 94</h1>
+    <h1>פתרונות מלאים למבחן במכניקה (20215) - סמסטר 2026ב', מועד 94</h1>
 
     <div class="solution">
-        <h2>שאלה 1 - פתרון</h2>
-        <p><strong>א.</strong> מדובר בהתנגשות פלסטית ללא כוחות חיצוניים בציר האופקי, לכן התנע הכולל נשמר:</p>
+        <h2>שאלה 1 - תנע וכוח גרר</h2>
+        <p><strong>א.</strong> אין כוחות חיצוניים בציר האופקי, ולכן התנע הכולל של המערכת נשמר. מדובר בהתנגשות פלסטית:</p>
         <p class="math">\( m v_0 = (m + M)V_f \implies V_f = \frac{m}{m+M}v_0 \)</p>
         
-        <p><strong>ב.</strong> משוואות התנועה על פי החוק השני של ניוטון:</p>
+        <p><strong>ב.</strong> משוואות התנועה על פי החוק השני של ניוטון עבור כל גוף בנפרד:</p>
         <p class="math">\( m \frac{dv_1}{dt} = -b(v_1 - v_2) = -bu \)</p>
         <p class="math">\( M \frac{dv_2}{dt} = b(v_1 - v_2) = bu \)</p>
-        <p>נגזור את \(u = v_1 - v_2\) לפי הזמן:</p>
+        <p>נגזור את המהירות היחסית \(u = v_1 - v_2\) לפי הזמן ונציב את התאוצות:</p>
         <p class="math">\( \frac{du}{dt} = \frac{dv_1}{dt} - \frac{dv_2}{dt} = -\frac{b}{m}u - \frac{b}{M}u = -b\left(\frac{1}{m} + \frac{1}{M}\right)u \)</p>
         
-        <p><strong>ג.</strong> פתרון המשוואה הדיפרנציאלית הפשוטה מסדר ראשון. נסמן \(\mu = \frac{mM}{m+M}\) (מסה מצומצמת):</p>
+        <p><strong>ג.</strong> זוהי משוואה דיפרנציאלית פשוטה. נגדיר מסה מצומצמת \(\mu = \frac{mM}{m+M}\), ולכן \(\frac{du}{dt} = -\frac{b}{\mu}u\). הפתרון הוא:</p>
         <p class="math">\( u(t) = u(0) e^{-\frac{b}{\mu}t} \)</p>
-        <p>מכיוון ש-\(u(0) = v_0 - 0 = v_0\), נקבל: \( u(t) = v_0 e^{-\frac{b(m+M)}{mM}t} \).</p>
+        <p>מכיוון שברגע \(t=0\) בול העץ במנוחה, המהירות היחסית ההתחלתית היא \(u(0) = v_0\). מכאן: \( u(t) = v_0 e^{-\frac{b(m+M)}{mM}t} \).</p>
         
-        <p><strong>ד.</strong> עומק החדירה \(d\) הוא האינטגרל של המהירות היחסית \(u(t)\) מרגע הפגיעה ועד שהקליע נעצר בתוך הבול (\(t \to \infty\)):</p>
-        <p class="math">\( d = \int_0^\infty u(t) dt = \int_0^\infty v_0 e^{-\frac{b}{\mu}t} dt = v_0 \left[ -\frac{\mu}{b} e^{-\frac{b}{\mu}t} \right]_0^\infty = \frac{v_0 \cdot m M}{b(m+M)} \)</p>
+        <p><strong>ד.</strong> עומק החדירה \(d\) הוא האינטגרל של המהירות היחסית (מרחק יחסי) מאפס ועד לאינסוף (כשהקליע נעצר בתוך הבול):</p>
+        <p class="math">\( d = \int_0^\infty u(t) dt = \int_0^\infty v_0 e^{-\frac{b}{\mu}t} dt = v_0 \left[ -\frac{\mu}{b} e^{-\frac{b}{\mu}t} \right]_0^\infty = \frac{v_0 \cdot \mu}{b} = \frac{v_0 \cdot m M}{b(m+M)} \)</p>
     </div>
 
     <div class="solution">
-        <h2>שאלה 3 - פתרון (גוף קשיח)</h2>
-        <p><strong>א.</strong> נקבע את ראשית הצירים \((0,0)\) בנקודת ההתנגשות. מרכז המסה של המוט האופקי נמצא במרחק \(L/2\) שמאלה, קרי ב-\(-L/2, 0\). מרכז המסה של המוט האנכי נמצא במרחק \(L/2 - L/3 = L/6\) מעל לנקודת ההתנגשות, קרי ב-\(0, L/6\). מרכז המסה המשותף:</p>
-        <p class="math">\( X_{cm} = \frac{m(-L/2) + m(0)}{2m} = -\frac{L}{4} \)</p>
-        <p class="math">\( Y_{cm} = \frac{m(0) + m(L/6)}{2m} = \frac{L}{12} \)</p>
-        
-        <p><strong>ג.</strong> שימור תנע קווי מערכתי:</p>
-        <p class="math">\( m v_0 \hat{x} = 2m \vec{V}_{cm} \implies \vec{V}_{cm} = \frac{v_0}{2} \hat{x} \)</p>
-        
-        <p><strong>ד.</strong> שימור תנע זוויתי ביחס למרכז המסה החדש. התנע הזוויתי ההתחלתי הוא של המוט האופקי סביב ה-CM החדש:</p>
-        <p class="math">\( \vec{J}_{init} = \vec{r}_{cm} \times \vec{p} = \left(-\frac{L}{4}\hat{x} + \frac{L}{12}\hat{y}\right) \times (m v_0 \hat{x}) = -m v_0 \frac{L}{12} \hat{z} \)</p>
-        <p class="math">\( \vec{J}_{final} = I_{cm} \omega \hat{z} \)</p>
-        <p>לאחר חישוב \(I_{cm}\) (בסעיף ב'), משווים ומוצאים את \(\omega\).</p>
+        <h2>שאלה 2 - מערכת אוסצילטורים</h2>
+        <p><strong>א.</strong> התנועה מחולקת לשני שלבים. שלב 1: הגוף נע מ-\(x=-L\) עד לנקודת שיווי המשקל המקורית \(x=0\) (נקודה A) תחת השפעת קפיץ \(k_1\) בלבד. זמן זה הוא רבע זמן מחזור:</p>
+        <p class="math">\( t_1 = \frac{T_1}{4} = \frac{2\pi}{4}\sqrt{\frac{m}{k_1}} = \frac{\pi}{2}\sqrt{\frac{m}{k_1}} \)</p>
+        <p>שלב 2: כשהגוף בנקודה A (בה הקפיץ השני בדיוק נוגע בקיר הימני בנקודה B שנמצאת במרחק L/2), שני הקפיצים מפעילים כוח שמאלה. קבוע הקפיץ השקול הוא \(k_{eq} = k_1 + k_2\). הגוף ימשיך עד שייעצר. הזמן לעצירה הוא רבע זמן מחזור של המערכת החדשה:</p>
+        <p class="math">\( t_2 = \frac{T_{eq}}{4} = \frac{\pi}{2}\sqrt{\frac{m}{k_1+k_2}} \)</p>
+        <p>הזמן הכולל: \( t_{total} = \frac{\pi}{2}\sqrt{m}\left(\frac{1}{\sqrt{k_1}} + \frac{1}{\sqrt{k_1+k_2}}\right) \).</p>
+
+        <p><strong>ב.</strong> נמצא את משרעת התנועה החדשה \(A_2\) (המרחק המקסימלי מנקודה A ימינה) לפי שימור אנרגיה בין המצב ההתחלתי לעצירה:</p>
+        <p class="math">\( \frac{1}{2}k_1 L^2 = \frac{1}{2}(k_1+k_2)A_2^2 \implies A_2 = L\sqrt{\frac{k_1}{k_1+k_2}} \)</p>
+        <p>הקיר נמצא במרחק \(L/2\) מנקודה A. המרחק המינימלי מהקיר יהיה: \( d_{min} = \frac{L}{2} - A_2 = L\left(\frac{1}{2} - \sqrt{\frac{k_1}{k_1+k_2}}\right) \).</p>
+
+        <p><strong>ג.</strong> ברגע ההתקרבות המקסימלית, קפיץ \(k_2\) מכווץ בשיעור \(A_2\). לכן הכוח שיפעיל על הקיר (וחוק פעולה ותגובה מהקיר) הוא:</p>
+        <p class="math">\( F_{wall} = k_2 A_2 = k_2 L \sqrt{\frac{k_1}{k_1+k_2}} \)</p>
+
+        <p><strong>ד.</strong> המתקף שהפעיל הקיר. השינוי הכולל בתנע של המסה במהלך תנועתה מימין לנקודה A הוא \( \Delta p = -2mv_A \). המהירות בנקודה A היא \( v_A = L\sqrt{k_1/m} \). 
+        שני הקפיצים מפעילים כוח מתקף על המסה, והם מחלקים אותו ביניהם ביחס ישר לקבועי הקפיץ (שכן הכוח בכל רגע הוא \(-k_1 x - k_2 x\)). לכן חלקה של תגובת הקיר (דרך \(k_2\)) מתוך סך המתקף הוא:</p>
+        <p class="math">\( J_{wall} = \frac{k_2}{k_1+k_2} \Delta p = -2L\sqrt{mk_1} \left( \frac{k_2}{k_1+k_2} \right) \)</p>
     </div>
 
     <div class="solution">
-        <h2>שאלה 4 - פתרון (רקטה ומסה משתנה)</h2>
-        <p><strong>א.</strong> משוואת התנועה של הרקטה ברגע ההצתה (כוח דחף מול חיכוך סטטי מקסימלי):</p>
-        <p class="math">\( F_{thrust} = \gamma U \)</p>
+        <h2>שאלה 3 - גוף קשיח (התנגשות מוטות)</h2>
+        <p><strong>א.</strong> נמקם את ראשית הצירים בנקודת ההתנגשות. נחשב את מיקום מרכז המסה של כל מוט לפני הפגיעה:
+        מרכז המוט האופקי נמצא במרחק \(L/2\) שמאלה מהפגיעה: \((-L/2, 0)\).
+        מרכז המוט האנכי נמצא במרחק \(L/2 - L/3 = L/6\) מעל לנקודת ההתנגשות: \((0, L/6)\).
+        מרכז המסה המשותף של שני מוטות בעלי מסה זהה הוא ממוצע המיקומים:</p>
+        <p class="math">\( X_{cm} = \frac{-L/2 + 0}{2} = -\frac{L}{4}, \quad Y_{cm} = \frac{0 + L/6}{2} = \frac{L}{12} \)</p>
+        
+        <p><strong>ב.</strong> חישוב מומנט ההתמד באמצעות משפט שטיינר ביחס למרכז המסה החדש. מומנט ההתמד של כל מוט סביב מרכזו הוא \(mL^2/12\). 
+        עבור המוט האופקי (מרחק למרכז החדש: \(d_1^2 = (-L/2 - (-L/4))^2 + (0 - L/12)^2 = L^2/16 + L^2/144 = 10L^2/144\)):</p>
+        <p class="math">\( I_{horiz} = \frac{1}{12}mL^2 + m\frac{10}{144}L^2 = \frac{12+10}{144}mL^2 = \frac{22}{144}mL^2 = \frac{11}{72}mL^2 \)</p>
+        <p>באופן סימטרי לחלוטין, גם למוט האנכי יתקבל \( \frac{11}{72}mL^2 \). סך הכל:</p>
+        <p class="math">\( I_{tot} = 2 \times \frac{11}{72}mL^2 = \frac{11}{36}mL^2 \)</p>
+
+        <p><strong>ג.</strong> משימור תנע קווי מערכתי: \( m v_0 \hat{x} = 2m \vec{V}_{cm} \implies \vec{V}_{cm} = \frac{v_0}{2} \hat{x} \).</p>
+        
+        <p><strong>ד.</strong> משימור תנע זוויתי ביחס למרכז המסה של המערכת. התנע הזוויתי ההתחלתי הוא של המוט האופקי בלבד. וקטור המיקום שלו ביחס ל-CM הוא יורד ב- \(-L/12\). לכן:</p>
+        <p class="math">\( J_{init} = r \times p = \left(-\frac{L}{12}\hat{y}\right) \times (mv_0 \hat{x}) = m v_0 \frac{L}{12} \hat{z} \)</p>
+        <p>נשווה לתנע הזוויתי הסופי \( I_{tot} \omega \):</p>
+        <p class="math">\( \frac{11}{36}mL^2 \omega = \frac{1}{12} m v_0 L \implies \omega = \frac{3 v_0}{11 L} \)</p>
+
+        <p><strong>ה.</strong> האינטגרל הזמני של הטורק על המוט האנכי ביחס למרכזו שלו שווה לשינוי בתנע הזוויתי של המוט האנכי (ביחס למרכזו שלו):</p>
+        <p class="math">\( \int \tau_1 dt = \Delta J_{vert} = I_{vert} \omega = \frac{1}{12}mL^2 \cdot \frac{3 v_0}{11 L} = \frac{m v_0 L}{44} \hat{z} \)</p>
+    </div>
+
+    <div class="solution">
+        <h2>שאלה 4 - רקטה ומסה משתנה</h2>
+        <p><strong>א.</strong> כדי שהרקטה תחל לנוע, כוח הדחף (Thrust) שנוצר מפליטת הגז חייב להתגבר על החיכוך הסטטי המקסימלי:</p>
+        <p class="math">\( F_{thrust} = \frac{dm}{dt}U = \gamma U \)</p>
         <p class="math">\( f_{s,max} = \mu N = \mu M_0 g \)</p>
-        <p>כדי שתתחיל לנוע: \(\gamma U > \mu M_0 g \implies \mu_{max} = \frac{\gamma U}{M_0 g}\).</p>
+        <p>נדרוש \(\gamma U > \mu M_0 g\), ולכן הערך המקסימלי של \(\mu\) הוא: \( \mu_{max} = \frac{\gamma U}{M_0 g} \).</p>
+
+        <p><strong>ב.</strong> תאוצת הרקטה לאורך זמן הבעירה היא \(a(t) = \frac{\gamma U}{M_0 - \gamma t} - \mu g\). נבצע אינטגרציה לפי הזמן כדי למצוא את המהירות. מהירות מקסימלית תושג בסיום הבעירה, כאשר המסה היא \(M_0/2\) והזמן שחלף הוא \(t_{burn} = \frac{M_0}{2\gamma}\):</p>
+        <p class="math">\( v_{max} = U \ln\left(\frac{M_0}{M_{final}}\right) - \mu g t_{burn} = U \ln(2) - \frac{\mu g M_0}{2\gamma} \)</p>
+
+        <p><strong>ג.</strong> המתקף שהפעיל כוח החיכוך הקינטי הוא האינטגרל של הכוח לאורך זמן הבעירה. המסה הממוצעת בזמן הבעירה יורדת מ-\(M_0\) ל-\(M_0/2\), ולכן המסה הממוצעת היא \(\frac{3}{4}M_0\):</p>
+        <p class="math">\( J_f = \int_0^{t_{burn}} -\mu(M_0 - \gamma t)g dt = -\mu g \left( M_0 t_{burn} - \frac{\gamma t_{burn}^2}{2} \right) = -\mu g \left( \frac{M_0^2}{2\gamma} - \frac{M_0^2}{8\gamma} \right) = -\frac{3\mu g M_0^2}{8\gamma} \)</p>
+
+        <p><strong>ד.</strong> לאחר סיום הבעירה, הרקטה (שמסתה כעת קבועה \(M_0/2\)) מאטה בגלל חיכוך בלבד בתאוצה שלילית קבועה של \(-\mu g\). זמן העצירה מהרגע בו המנוע כבה הוא \(t_{stop} = v_{max} / \mu g\). נוסיף לכך את זמן הבעירה ונקבל את הזמן הכולל:</p>
+        <p class="math">\( t_{total} = t_{burn} + t_{stop} = \frac{M_0}{2\gamma} + \frac{U \ln(2) - \frac{\mu g M_0}{2\gamma}}{\mu g} = \frac{M_0}{2\gamma} + \frac{U \ln(2)}{\mu g} - \frac{M_0}{2\gamma} = \frac{U \ln(2)}{\mu g} \)</p>
+        <p>התוצאה אכן אינה תלויה ב-\(\gamma\).</p>
+    </div>
+
+    <div class="solution">
+        <h2>שאלה 5 - תורת היחסות</h2>
+        <p><strong>א.</strong> שימוש בטרנספורמציית מהירויות. מהירות A לפי B:</p>
+        <p class="math">\( v_{AB} = \frac{v_A - v_B}{1 - \frac{v_A v_B}{c^2}} = \frac{0.8c - (-0.5c)}{1 - (0.8)(-0.5)} = \frac{1.3c}{1 + 0.4} = \frac{1.3}{1.4}c = \frac{13}{14}c \approx 0.928c \)</p>
+
+        <p><strong>ב.</strong> שחרור ההבזק קורה במערכת כדור הארץ בזמן \(T_0\) ובמיקום \(x = -0.5c T_0\). נמצא את הזמן הזה במערכת הייחוס של B (נחשב את גורם לורנץ עבור B: \( \gamma = 1/\sqrt{1-0.25} = 2/\sqrt{3} \)):</p>
+        <p class="math">\( t'_B = \gamma\left(T_0 - \frac{v x}{c^2}\right) = \frac{2}{\sqrt{3}}\left(T_0 - \frac{(-0.5c)(-0.5c T_0)}{c^2}\right) = \frac{2}{\sqrt{3}}(0.75 T_0) = \frac{\sqrt{3}}{2}T_0 \)</p>
+        <p>במערכת B, חללית A התרחקה במהירות \(13/14c\) במשך זמן זה. לכן המרחק הוא:</p>
+        <p class="math">\( d = v_{AB} \cdot t'_B = \frac{13}{14}c \cdot \frac{\sqrt{3}}{2}T_0 = \frac{13\sqrt{3}}{28}c T_0 \)</p>
+
+        <p><strong>ג.</strong> כעת נבדוק את אותו מאורע (B משחררת אור) מנקודת המבט של חללית A (\(\gamma_A = 1/\sqrt{1-0.64} = 5/3\)):</p>
+        <p class="math">\( t'_A = \gamma_A\left(T_0 - \frac{v_A x}{c^2}\right) = \frac{5}{3}\left(T_0 - \frac{(0.8c)(-0.5c T_0)}{c^2}\right) = \frac{5}{3}(1.4 T_0) = \frac{7}{3}T_0 \)</p>
+        <p>המרחק במערכת A הוא מהירות ההתרחקות כפול הזמן:</p>
+        <p class="math">\( d_A = v_{AB} \cdot t'_A = \frac{13}{14}c \cdot \frac{7}{3}T_0 = \frac{13}{6}c T_0 \)</p>
+
+        <p><strong>ד.</strong> במערכת B, האור משוחרר מראשית הצירים בזמן \(t'_B = \frac{\sqrt{3}}{2}T_0\) ונע במהירות \(c\). חללית A נמצאת במרחק שנמצא בסעיף ב' ובורחת במהירות \(13/14c\). משוואת התנועה להתנגשות:</p>
+        <p class="math">\( c(t' - t'_B) = v_{AB} t' \implies c t' - \frac{13}{14}c t' = c t'_B \implies \frac{1}{14}t' = t'_B \)</p>
+        <p class="math">\( t' = 14 t'_B = 14 \left(\frac{\sqrt{3}}{2}T_0\right) = 7\sqrt{3}T_0 \)</p>
+
+        <p><strong>ה.</strong> נמצא תחילה את אנרגיית החלקיק במערכת כדור הארץ (\(p_x = 0.5mc\)):</p>
+        <p class="math">\( E = \sqrt{(pc)^2 + (mc^2)^2} = \sqrt{0.25 + 1} mc^2 = \frac{\sqrt{5}}{2} mc^2 \)</p>
+        <p>נפעיל טרנספורמציית לורנץ לתנע אל מערכת B (\(v = -0.5c\)):</p>
+        <p class="math">\( p'_x = \gamma\left(p_x - \frac{vE}{c^2}\right) = \frac{2}{\sqrt{3}}\left(0.5mc - \frac{-0.5c}{c^2}\frac{\sqrt{5}}{2}mc^2\right) = \frac{2}{\sqrt{3}}\left(0.5mc + \frac{\sqrt{5}}{4}mc\right) = \frac{2+\sqrt{5}}{2\sqrt{3}} mc \)</p>
     </div>
 </body>
 </html>
